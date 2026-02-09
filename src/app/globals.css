@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
+/* --------------------------------
+   THEME VARIABLES (SOFT TEXT COLORS)
+--------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base surfaces (Light) */
+  --background: #f8fafc;        /* very soft cool white */
+  --foreground: #1e293b;        /* slate-800 (NOT black) */
+
+  /* Muted text */
+  --muted: #64748b;             /* slate-500 */
+
+  /* Borders & dividers */
+  --border: #e2e8f0;            /* slate-200 */
+
+  /* Accent */
+  --accent: #4f46e5;            /* indigo-600 */
+  --accent-soft: #eef2ff;
+
+  /* Toggle */
+  --toggle-bg: #e2e8f0;
+  --toggle-knob: #ffffff;
+
+  /* Gradients */
+  --gradient-from: #4f46e5;
+  --gradient-to: #9333ea;
 }
 
+:root.dark {
+  /* Base surfaces (Dark) */
+  --background: #020617;        /* deep navy */
+  --foreground: #cbd5f5;        /* soft indigo-gray (NOT white) */
+
+  /* Muted text */
+  --muted: #94a3b8;             /* slate-400 */
+
+  /* Borders & dividers */
+  --border: #1e293b;            /* slate-800 */
+
+  /* Accent */
+  --accent: #818cf8;            /* indigo-400 */
+  --accent-soft: #1e1b4b;
+
+  /* Toggle */
+  --toggle-bg: #1e293b;
+  --toggle-knob: #020617;
+
+  /* Gradients */
+  --gradient-from: #818cf8;
+  --gradient-to: #c084fc;
+}
+
+/* --------------------------------
+   TAILWIND THEME BRIDGE
+--------------------------------- */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* --------------------------------
+   BASE ELEMENTS
+--------------------------------- */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
